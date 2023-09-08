@@ -2,7 +2,7 @@ import React from "react";
 import Coffee from "./Coffee";
 import PropTypes from "prop-types";
 
-function CoffeeMenu(props){
+function CoffeeList(props){
   return (
     <React.Fragment>
       <hr/>
@@ -21,9 +21,9 @@ function CoffeeMenu(props){
   );
 }
 
-CoffeeMenu.propTypes = {
-  coffeeMenu: PropTypes.array,
+CoffeeList.propTypes = {
+  coffeeList: PropTypes.array,
   onCoffeeSelection: PropTypes.func
 };
 
-export default CoffeeMenu;
+export default CoffeeList;

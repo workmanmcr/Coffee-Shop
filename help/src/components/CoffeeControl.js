@@ -1,6 +1,6 @@
 import React from "react";
 import NewCoffeeForm from "./NewCoffeeForm";
-import CoffeeMenu from "./CoffeeMenu";
+import CoffeeMenu from "./CoffeeList";
 import CoffeeDetail from "./CoffeeDetail";
 import EditCoffeeForm from "./EditCoffeeForm";
 import { v4 } from 'uuid';
@@ -96,17 +96,20 @@ class CoffeeControl extends React.Component {
   handleSellingCoffee = () => {
     const { selectedCoffee, mainCoffeeList } = this.state;
     if (selectedCoffee.available > 0) {
-      selectedCoffee.available -= 1;
-    } else {
-      selectedCoffee.available = 0;
+      const updatedCoffee = {
+        ...selectedCoffee,
+        available: selectedCoffee.available - 1,
+      };
+  
+      const updatedMainCoffeeList = mainCoffeeList.map((coffee) =>
+        coffee.id === selectedCoffee.id ? updatedCoffee : coffee
+      );
+  
+      this.setState({
+        mainCoffeeList: updatedMainCoffeeList,
+      });
     }
-    const index = mainCoffeeList.indexOf(selectedCoffee);
-    const newMainCoffeeList = [...mainCoffeeList];
-    newMainCoffeeList[index] = selectedCoffee;
-    this.setState({
-      mainCoffeeList: newMainCoffeeList
-    });
-  }
+  };
 
   render(){
     let currentlyVisibleState = null;
