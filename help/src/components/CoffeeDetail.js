@@ -10,9 +10,9 @@ function CoffeeDetail(props) {
       <p><em>{coffee.roast}</em></p>
       <p><em>{coffee.price}</em></p>
       <p><em>{coffee.weight}</em></p>
-      <button onClick={props.onClickingEdit}>Update Coffee</button>
-      <button onClick={props.onClickingSell}>Sell 1 Lb. Coffee</button>
-      <button onClick={()=> onClickingDelete(coffee.id) }>Delete Coffee</button>
+      <button onClick={ props.onClickingEdit }>Edit</button> 
+      <button onClick={ props.onCoffeeSale }>Sell</button> 
+      <button onClick={()=> onClickingDelete(coffee.id) }>Delete</button>
       <hr/>
     </React.Fragment>
   );
@@ -20,8 +20,9 @@ function CoffeeDetail(props) {
 
 CoffeeDetail.propTypes = {
   coffee: PropTypes.object,
+  onClickingEdit: PropTypes.func,
   onClickingDelete: PropTypes.func,
-  onClickingEdit: PropTypes.func
+  onCoffeeSale: PropTypes.func
 };
 
 export default CoffeeDetail;

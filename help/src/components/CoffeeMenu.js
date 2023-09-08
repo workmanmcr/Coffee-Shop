@@ -10,6 +10,7 @@ function CoffeeMenu(props){
           <Coffee 
           whenCoffeeClicked = { props.onCoffeeSelection }
           name={coffee.name}
+          origin={coffee.origin}
           roast={coffee.roast}
           price={coffee.price}
           available={coffee.available}
