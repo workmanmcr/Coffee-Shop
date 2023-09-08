@@ -49,13 +49,27 @@ class MenuControl extends React.Component {
     });
   }
 
-  // handleSellingCoffee = (id) => {
-  //   const newMainMenu = this.state.mainMenu.filter(coffee => coffee.id !== id);
-  //   this.setState({
-  //     mainMenu: newMainMenu,
-  //     selectedCoffee: null
-  //   });
-  // }
+  handleSellClick = (id) => {
+    this.setState(prevState => {
+      const updatedCoffeeMenu = prevState.mainCoffeeMenu.map(coffee => {
+        if (coffee.id === id) {
+          const updatedQuantity = coffee.quantity - 1;
+          const updatedBurlap = Math.floor(updatedQuantity / 130);
+          if (updatedQuantity < 0) {
+            alert("Not enough coffee to sell!");
+            return coffee;
+          }
+          return { ...coffee, quantity: updatedQuantity, burlap: updatedBurlap };
+        }
+        return coffee;
+      });
+      return {
+        mainCoffeeMenu: updatedCoffeeMenu,
+        selectedCoffee: updatedCoffeeMenu.find(coffee => coffee.id === id)
+      };
+    });
+  };
+  
 
   handleEditClick = () => {
     console.log("handleEditClick reached!");
@@ -72,7 +86,7 @@ class MenuControl extends React.Component {
     });
   }
 
-  render(){
+  render() {
     let currentlyVisibleState = null;
     let buttonText = null;
 
