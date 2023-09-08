@@ -1,35 +1,34 @@
 import React from "react";
-import ReusableForm from "./ReusableForm";
 import PropTypes from "prop-types";
+import ReusableForm from "./ReusableForm";
 
+function EditCoffeeForm(props) {
 
-function EditCoffeeForm (props) {
-  const { coffee } = props;
+  const { Coffee } = props;
 
   function handleEditCoffeeFormSubmission(event) {
     event.preventDefault();
     props.onEditCoffee({
-      name: event.target.name.value, 
+      name: event.target.name.value,
       origin: event.target.origin.value,
-      roast: event.target.roast.value, 
-      price: parseInt(event.target.price.value), 
-      available: parseInt(event.target.available.value),
-      id: coffee.id
+      roast: event.target.roast.value,
+      price: event.target.price.value,
+     
     });
   }
-  
+
   return (
-    <React.Fragment>
-      <ReusableForm 
+    <>
+      <ReusableForm
         formSubmissionHandler={handleEditCoffeeFormSubmission}
-        buttonText="Update"/>
-    </React.Fragment>
+        buttonText="Update Coffee"
+        defaultValues={Coffee} />
+    </>
   );
 }
 
 EditCoffeeForm.propTypes = {
-  coffee: PropTypes.object,
-  onEditCoffee: PropTypes.func
+  onEditCoffee: PropTypes.func.isRequired
 };
 
 export default EditCoffeeForm;

@@ -18,7 +18,7 @@ class CoffeeControl extends React.Component {
           name: "Columbian",
           origin: "columbia",
           roast: "Dark",
-          price: 5,
+          price: 10,
           available: 5,
           id: v4()
         },
@@ -57,12 +57,27 @@ class CoffeeControl extends React.Component {
   }
 
   handleAddingNewCoffeeToList = (newCoffee) => {
-    const newMainCoffeeList = this.state.mainCoffeeList.concat(newCoffee);
-    this.setState({mainCoffeeList: newMainCoffeeList, 
-      formVisibleOnPage: false
-    });
-  }
+    if (!newCoffee.name || 
+      !newCoffee.origin ||
+      !newCoffee.roast || 
+      !newCoffee.price ) {
+      alert("Please fill in all fields before submitting.");
+      return;
+    }
 
+    const newCoffeeItem = {
+      ...newCoffee,
+      quantity: 0,
+      burlap: 0,
+      id: v4(),
+    };
+  
+    this.setState((prevState) => ({
+      mainCoffeeList: [...prevState.mainCoffeeList, newCoffeeItem],
+      formVisibleOnPage: false,
+    }));
+  };
+  
   handleChangingSelectedCoffee = (id) => {
     const selectedCoffee = 
     this.state.mainCoffeeList.filter(coffee => coffee.id === id)[0];
