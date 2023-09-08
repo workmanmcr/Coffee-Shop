@@ -3,16 +3,54 @@ import NewCoffeeForm from "./NewCoffeeForm";
 import CoffeeMenu from "./CoffeeMenu";
 import CoffeeDetail from "./CoffeeDetail";
 import EditCoffeeForm from "./EditCoffeeForm";
+import { v4 } from 'uuid';
 
-class MenuControl extends React.Component {
+class CoffeeControl extends React.Component {
   
-  constructor(props) {
+  constructor(props){
     super(props);
     this.state = {
       formVisibleOnPage: false,
-      mainMenu: [],
       selectedCoffee: null,
-      editing: false
+      editing: false,
+      mainCoffeeList: [
+        {
+          name: "Burlaps Original",
+          origin: "Italy",
+          roast: "Dark",
+          price: 5,
+          available: 5,
+          id: v4()
+        },
+        {
+          name: "Daves coffee" ,
+          roast: "Light",
+          price: 10,
+          available: 10,
+          id: v4()
+        },
+        {
+          name: "Petes coffee",
+          roast: "Medium",
+          price: 15,
+          available: 15,
+          id: v4()
+        },
+        {
+          name: "Dans coffee" ,
+          roast: "Dark",
+          price: 20,
+          available: 130,
+          id: v4()
+        },
+        {
+          name: "joes coffee",
+          roast: "Dark",
+          price: 25,
+          available: 130,
+          id: v4()
+        },
+      ]
     };
   }
 
@@ -115,4 +153,4 @@ class MenuControl extends React.Component {
 
 }
 
-export default MenuControl;
+export default CoffeeControl;

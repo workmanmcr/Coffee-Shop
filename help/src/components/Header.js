@@ -1,9 +1,15 @@
 import React from "react";
 
 function Header(){
+
   return (
-    <h1>Coffee Menu</h1>
+    <React.Fragment>
+      <div className="header">
+        <h1>coffee</h1>
+        <hr/>
+      </div>
+    </React.Fragment>
   );
 }
 
-export default Header;
+export default Header; 
