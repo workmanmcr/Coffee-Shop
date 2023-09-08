@@ -13,6 +13,7 @@ function EditCoffeeForm(props) {
       origin: event.target.origin.value,
       roast: event.target.roast.value,
       price: event.target.price.value,
+      available: event.target.available.value,
      
     });
   }
