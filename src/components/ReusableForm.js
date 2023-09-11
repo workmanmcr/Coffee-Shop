@@ -24,7 +24,7 @@ function ReusableForm(props) {
         <input
         type="text"
         name="weight"
-        placeholder="Weight" />
+        placeholder="Available" />
         <button type="submit">{props.buttonText}</button>
       </form>
     </React.Fragment>

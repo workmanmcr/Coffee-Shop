@@ -121,6 +121,7 @@ class CoffeeControl extends React.Component {
       );
   
       this.setState({
+        selectedCoffee: updatedCoffee,
         mainCoffeeList: updatedMainCoffeeList,
       });
     }
