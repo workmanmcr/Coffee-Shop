@@ -29,7 +29,8 @@ function EditCoffeeForm(props) {
 }
 
 EditCoffeeForm.propTypes = {
-  onEditCoffee: PropTypes.func.isRequired
+  onEditCoffee: PropTypes.func.isRequired,
+  coffee: PropTypes.obj
 };
 
 export default EditCoffeeForm;
