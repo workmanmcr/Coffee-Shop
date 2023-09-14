@@ -11,8 +11,8 @@ function AddCoffeeForm(props) {
       props.onNewCoffeeCreation({
         name: event.target.name.value,
         origin: event.target.origin.value,
-        roast: event.target.roast.value,
-        price: event.target.price.value,
+        price: parseFloat(event.target.price.value),
+        available: parseInt(event.target.available.value),
         id: v4()
       });
     }

@@ -4,7 +4,7 @@ import ReusableForm from "./ReusableForm";
 
 function EditCoffeeForm(props) {
 
-  const { Coffee } = props;
+  const { coffee } = props;
 
   function handleEditCoffeeFormSubmission(event) {
     event.preventDefault();
@@ -12,9 +12,9 @@ function EditCoffeeForm(props) {
       name: event.target.name.value,
       origin: event.target.origin.value,
       roast: event.target.roast.value,
-      price: event.target.price.value,
-      available: event.target.available.value,
-     
+      price: parseFloat(event.target.price.value),
+      available: parseFloat(event.target.available.value),
+      id: coffee.id
     });
   }
 
